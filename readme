@@ -1,0 +1,8 @@
+/add recipe
+
+mutation {
+  addRecipe(name:"poha",category:"veg",description:"build with tomato",instructions:"Dont use chicken",username:"Rohit"){
+    name
+    category
+  }
+}
