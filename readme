@@ -6,3 +6,5 @@ mutation {
     category
   }
 }
+
+//get all recipes
