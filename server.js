@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config({ path: 'variables.env' })
 const Recipe = require('./models/recipe')
 const User = require('./models/user')
+const bodyParser = require('body-parser')
 
 const { typeDefs } = require('./schema')
 const { resolvers } = require('./resolvers')
@@ -31,7 +32,9 @@ const app = express()
 app.use('/graphiql',graphiqlExpress({endpointURL: '/graphql'}))
 
 //connect schemas t ographql
-app.use('/graphql',graphqlExpress({
+app.use('/graphql',
+bodyParser.json(),
+graphqlExpress({
     schema,
     context:{
         Recipe,
